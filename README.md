@@ -56,7 +56,7 @@ Parameter updates: The model adjusts its internal parameters to reduce that erro
 ![alt text](./src/image4.png)
 
 
-![alt text](image.png)
+![alt text](./src/image.png)
 
 
 ## Convolutional neural networks (CNNs)
@@ -64,16 +64,16 @@ Parameter updates: The model adjusts its internal parameters to reduce that erro
 **CNNs are deep learning models designed to process visual and spatial data. They are widely used in computer vision tasks such as image classification, object detection and image segmentation.
 CNNs analyze images using convolutional layers that scan small regions to detect patterns. Instead of treating every pixel independently, the network learns visual features such as edges, shapes and textures. Early layers capture simple patterns, while deeper layers combine those signals into more complex representations. This ability to learn hierarchical visual features makes CNNs well suited for tasks such as medical imaging systems that detect tumors, facial recognition for identity verification and autonomous driving systems that interpret road conditions and obstacles.**
 
-![alt text](image-1.png)
+![alt text](./src/image-1.png)
 
 ## Recurrent neural networks (RNNs)
 
 **RNNs are deep learning models designed to process sequential data, where the order of information matters. They are commonly used for tasks involving time series, speech and natural language text. Unlike feedforward neural networks, which treat each input independently, RNNs process inputs step by step so earlier outputs influence how the model interprets later inputs.**
 
-![alt text](image-2.png)
+![alt text](./src/image-2.png)
 
 
-## Diffusion models
+## Diffusion models
 
 
 **Diffusion models are a class of generative deep learning models that produce realistic outputs — most commonly images — by learning how to remove noise from data.**
@@ -88,4 +88,4 @@ CNNs analyze images using convolutional layers that scan small regions to detect
 **Graph neural networks
 Graph neural networks (GNNs) are deep learning models designed to work with graph-structured data, where information is represented as nodes (entities) connected by edges (relationships). Unlike traditional deep learning models that process structured formats such as image grids or text sequences, graphs represent data as networks of interconnected elements. GNNs are especially useful for problems where understanding relationships between entities is more important than analyzing individual data points.**
 
-GNNs learn by passing information between connected nodes so each node can update its representation using both its own attributes and information from neighboring nodes. By capturing both direct and indirect connections across a network, GNNs allow machine learning systems to reason about complex relationships and patterns.**
+**GNNs learn by passing information between connected nodes so each node can update its representation using both its own attributes and information from neighboring nodes. By capturing both direct and indirect connections across a network, GNNs allow machine learning systems to reason about complex relationships and patterns.**
