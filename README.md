@@ -17,9 +17,9 @@
 | [Artificial Neuron ](#artificial-neuron)| [DBNs](#deep-belief-networks-dbns)|
 | [ANNs](#artifical-neuron-network)| [Autoencoder](#autoencoder)|
 | [CNNs](#convolutional-neural-networks-cnns)| [Transfer Learning](#transfer-learning) |
-| [RNNS](#recurrent-neural-networks-rnns)|
-| [LSTM](#long-short-term-memory-lstm)|
-| [GANs](#gans)|
+| [RNNS](#recurrent-neural-networks-rnns)| [ResNets](#resnets)|
+| [LSTM](#long-short-term-memory-lstm)| [RDL](#deep-reinforcement-learning-rdl)|
+| [GANs](#gans)|[Transformers](#transformers)|
 
 
 
@@ -256,3 +256,64 @@ _Transfer learning is a machine learning technique where a model developed and t
 * **Transfer Learning:** You hire an experienced Italian chef. They already know how ovens work, how ingredients bind, and how to control heat. You don't need to teach them the fundamentals of cooking; you only need to "fine-tune" their existing knowledge to follow the specific French pastry recipe.
 
 In deep learning, the "fundamentals of cooking" are basic mathematical patterns (like edges, shapes, and gradients in an image), and the "specific recipe" is your specialized classification task.
+
+## ResNets 
+
+* Residual Networks (ResNets) are a specific type of deep convolutional neural network architecture that revolutionized computer vision by solving one of the most stubborn problems in deep learning: the degradation of training in exceptionally deep networks.
+
+* Before ResNets, if you tried to stack 50 or 100 convolutional layers together to analyze an image, the network's accuracy would suddenly plunge. This happens due to the vanishing gradient problem. During backpropagation, the error signal is multiplied by small weights over and over as it travels backward. By the time it reaches the first few layers, the signal shrinks to almost zero, meaning the foundational layers completely stop learning.
+
+* ResNets bypass this limitation using a brilliant structural trick called the Skip Connection (or shortcut connection).
+
+* **The "Highway Bypass" Analogy
+Imagine trying to drive a long distance through a crowded city grid (a standard deep, sequential network).**
+
+  * Standard CNN: Every single block (layer) you pass through forces you to stop at traffic lights, navigate intersections, and get slowed down (matrix multiplications and non-linear activations). Over a 50-block drive, the signal degrades severely.
+
+  * ResNet: The city builds a high-speed bypass overpass (a skip connection) alongside every few blocks. If the local street (the layer's processing) is useful, you take it. If the local street is too noisy or unnecessary, you take the overpass, completely skipping the local traffic and jumping straight to the next section without losing your speed.
+
+By providing these bypasses, ResNets allow the gradient to travel backwards through hundreds of layers without vanishing.
+
+## Deep Reinforcement Learning (RDL)
+
+* Deep Reinforcement Learning (DRL) is a subfield of machine learning that combines the perceptual power of Deep Learning (neural networks) with the decision-making framework of Reinforcement Learning (learning through trial and error).
+
+* While standard neural networks (like CNNs or LSTMs) learn by being shown thousands of labeled examples, DRL systems learn by being dropped into an environment and forced to figure out the rules themselves by interacting with it and receiving feedback.
+
+* **The "Video Game Player" Analogy
+Imagine a person who has never seen a video game before, sitting in front of a TV with a controller.**
+
+  * _The Environment (The Game):_ The physical world or simulation the system operates in.
+
+  * _The State (The TV Screen):_ The current situation. The player looks at the pixels on the screen to understand what is happening right now.
+
+  * _The Agent (The Brain):_ The DRL algorithm deciding what to do.
+
+  * _The Action (The Controller):_ The player presses the "Jump" button.
+
+  * _The Reward (The Score):_ If the character jumps over a pit, the score goes up (+1). If the character falls in, the game ends (-1).
+
+Initially, the Agent mashes buttons randomly. Over millions of attempts, the neural network inside the Agent learns the complex visual patterns on the TV screen (State) that map to the specific button presses (Action) that result in the highest possible Score (Reward).
+
+## Transformers
+
+* Transformers are the neural network architecture introduced in the 2017 paper "Attention Is All You Need". It has almost entirely replaced LSTMs in Natural Language Processing (powering models like GPT and Gemini) and is rapidly replacing CNNs/ResNets in computer vision (via Vision Transformers, or ViTs).
+
+* LSTMs read data sequentially, one step at a time, which is incredibly slow and causes them to forget long-term context. Transformers discard sequence processing entirely. They look at every single piece of data (every word in a sentence, or every patch in an image) all at once, in parallel.
+
+* To understand how a Transformer figures out which pieces of data belong together without reading them in order, it relies on a mechanism called Self-Attention.
+
+* **The "Library Archive" Analogy
+Self-Attention operates on three specific vectors for every piece of data: Queries (Q), Keys (K), and Values (V).**
+
+  * Imagine you are in a massive library archive trying to research a topic.
+
+  * The Query (Q): This is what you are looking for. (e.g., "I need information on neural networks.")
+
+  * The Key (K): This is the label or title on the spine of every book on the shelf. (e.g., "Deep Learning Basics", "History of Rome", "Calculus I").
+
+  * The Value (V): This is the actual text and knowledge inside the book.
+
+  * The Process: You take your Query and compare it against every single Key on the shelf simultaneously. You calculate a "match score" for how relevant each book's title is to your question. You then extract the Value (the contents) from the books, giving much more weight to the books with a high match score, and ignoring the books with a score of zero.
+
+* In a Transformer, every single word in a sentence acts as a Query, searching all the other words (Keys) to figure out its own context, and then pulling their meaning (Values) to update its own definition.
