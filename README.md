@@ -1,10 +1,32 @@
 # DEEP LEARNING 101
 
+
 ## Overview of Deep Learning
 
 * Fundamentals
 * Applications & Scenerios of used for
 * Detailed Theoretical Learning
+* Practices
+
+## Content
+ 
+| Topics | Topics|
+| :---- | :---|
+| [What Is The Deep Learning ?](#what-is-the-deep-learning-)| [RBFNs](#radial-basis-function-networks-rbfns)|
+| [How Does Deep Learning Work ?](#what-is-the-deep-learning-)| [SOMs](#self-organizing-maps-soms)|
+| [Artificial Neuron ](#artificial-neuron)| [DBNs](#deep-belief-networks-dbns)|
+| [ANNs](#artifical-neuron-network)| [Autoencoder](#autoencoder)|
+| [CNNs](#convolutional-neural-networks-cnns)| [Transfer Learning](#transfer-learning) |
+| [RNNS](#recurrent-neural-networks-rnns)|
+| [LSTM](#long-short-term-memory-lstm)|
+| [GANs](#gans)|
+
+
+
+
+
+
+
 
 ---
 
@@ -27,7 +49,7 @@ DL works like a human brain therefore,The term "deep" refers to the numerous lay
 
 _The design of the artificial neuron was inspired by biological neural circuitry._
 
-## Artifical Neuron Network 
+## Artifical Neuron Network (ANNs)
 
 
 _A neural network consists of connected units or nodes called artificial neurons, which loosely model the neurons in the brain.These are connected by edges, which model the synapses in the brain. Each artificial neuron receives signals from connected neurons, then processes them and sends a signal to other connected neurons. The "signal" is a real number, and the output of each neuron is computed by some non-linear function of the totality of its inputs, called the activation function. The strength of the signal at each connection is determined by a weight, which adjusts as part of the training process._
@@ -119,7 +141,7 @@ Imagine you are listening to a very long story. To answer questions at the end, 
 
 ![alt text](./src/3.png)
 
-### GANs
+## GANs
 
 _Generative Adversarial Networks (GANs) are a deep learning architecture that pits two neural networks against each other to generate highly realistic synthetic data, such as images, text, or audio._
 
@@ -154,7 +176,7 @@ To understand a GAN, imagine a game of cat-and-mouse between an art counterfeite
 
 * This process continues until the Generator perfectly matches the true data distribution, leaving the Discriminator completely confused and forced to guess with a 50% accuracy rate.
 
-### Radial Basis Function Networks (RBFNs)
+## Radial Basis Function Networks (RBFNs)
 
 ![alt text](./src/5.png)
 #### The "Real Estate Agent" Analogy
@@ -177,7 +199,7 @@ To understand a GAN, imagine a game of cat-and-mouse between an art counterfeite
 
   - The Output Layer: This layer takes the outputs from all the hidden neurons, multiplies them by a set of weights, and adds them together (a simple linear combination) to produce the final answer.
 
-### Self-Organizing Maps (SOMs) 
+## Self-Organizing Maps (SOMs) 
 
 _Self-Organizing Maps (SOMs),also known as Kohonen maps, are a type of unsupervised artificial neural network designed to represent complex, high-dimensional data on a low-dimensional (typically 2D) topological grid._
 ![alt text](./src/6.png)
@@ -191,3 +213,46 @@ Unlike the supervised classification and regression tasks typically tackled with
 * The Output Layer (The Map): A 2D grid of neurons (often arranged in a rectangular or hexagonal lattice).
 
 * Crucial Detail: There are no weights between the input and output nodes in the traditional sense. Instead, each neuron on the 2D grid contains its own internal Weight Vector that has the exact same number of dimensions as the input data.
+
+## Deep Belief Networks (DBNs)
+
+Deep Belief Networks (DBNs) are deep, generative graphical models constructed by stacking multiple layers of simpler unsupervised networks, typically Restricted Boltzmann Machines (RBMs). Unlike standard feedforward neural networks that learn mapping from inputs to outputs all at once, DBNs learn to probabilistically reconstruct their inputs layer by layer, creating highly structured representations of the data before any supervised labeling is applied.
+
+## Autoencoder 
+
+* An autoencoder is an unsupervised artificial neural network trained to copy its input to its output. While this sounds trivial, the network is deliberately constrained in a way that prevents it from simply memorizing the data. Instead, it is forced to learn a compressed, foundational representation of the core features of the dataset.
+
+* Imagine you need to ship a fully assembled desk across the country, but shipping the whole desk is too expensive.
+
+* The Encoder (Disassembly): You take the desk apart, throw away the non-essential packaging, and pack the core pieces into a compact, flat box. You also write a highly compressed set of instructions on how it fits together.
+
+* The Bottleneck (The Flat Box): The shipping company will only accept boxes of a specific, very small size. This strict physical limitation forces you to be incredibly efficient about what you include. You cannot include air or empty space.
+
+* The Decoder (Reassembly): The person at the destination receives the flat box. Using only the parts and the minimal instructions provided, they must rebuild the desk.
+
+* The system's accuracy is judged by comparing the newly assembled desk (the output) to the original desk (the input). If they are identical, the process was a success.
+
+
+### An autoencoder consists of three main structural components:
+
+* The Encoder: A feedforward neural network that takes the high-dimensional input data and gradually reduces it through successively smaller hidden layers.
+
+* The Bottleneck (Latent Space): The central layer of the network, which has significantly fewer nodes than the input layer. This forces the data into a low-dimensional "latent representation." Because the capacity of this layer is so small, the network must discard noise and redundancy, keeping only the most essential mathematical features of the data.
+
+* The Decoder: A feedforward neural network that mirrors the encoder. It takes the compressed data from the bottleneck and expands it layer by layer, attempting to reconstruct the original input dimensions.
+
+## Transfer Learning
+
+_Transfer learning is a machine learning technique where a model developed and trained for one specific task is repurposed as the starting point for a different, but related, task._
+
+**Unlike LSTMs or Autoencoders, transfer learning is not a specific neural network architecture. It is a training strategy.** It bypasses the need to train massive models from scratch, saving immense amounts of computational power and time, while allowing deep learning to work on highly specialized datasets that are too small to support a network on their own.
+
+### The "Master Chef" Analogy
+
+*Imagine trying to teach someone how to bake a highly complex, specialized French pastry.*
+
+* **Training from Scratch:** You pull a random person off the street who has never been in a kitchen. You first have to teach them how to turn on an oven, how to crack an egg, how to measure flour, and how to hold a whisk, long before they can even attempt the pastry. (This requires massive amounts of time and trial-and-error).
+
+* **Transfer Learning:** You hire an experienced Italian chef. They already know how ovens work, how ingredients bind, and how to control heat. You don't need to teach them the fundamentals of cooking; you only need to "fine-tune" their existing knowledge to follow the specific French pastry recipe.
+
+In deep learning, the "fundamentals of cooking" are basic mathematical patterns (like edges, shapes, and gradients in an image), and the "specific recipe" is your specialized classification task.
