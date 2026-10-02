@@ -1,3 +1,4 @@
+# %% 
 import cv2
 import numpy as np
 
@@ -144,8 +145,6 @@ cv2.destroyAllWindows()
 
 
 #%% Extracting an object based on hue
-
-
 
 import cv2 as cv
 import numpy as np
